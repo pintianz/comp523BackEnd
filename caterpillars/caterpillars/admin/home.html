@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Caterpillars Count Site Administrator Tool</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <script src="jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <link rel="stylesheet" href="home.css">
+        <script>
+            $(function () {
+                $(".datePicker").datepicker({ dateFormat: "yy-mm-dd" });
+            });
+        </script>
+        <script src = "home.js"></script>     
+    </head>
+
+    <body>
+
+        <div class = "userInfo">
+            <span class = "userName">user name (administrator)</span><span class = "siteName">site name</span>
+            <button id = "signout">Log Out</button>
+        </div>
+
+        <div class ="changeSitePw">
+            <h3>Change Site Password</h3>
+            <form>
+                <pre>User Email:        </pre><span id ="userEmail"></span><br>
+                <pre>User Password:     </pre><input type="password" id = "userPw"><br>
+                <pre>New Site Password: </pre><input type ="password" id ="newSitePw"><br>
+                <pre>Confirm Password:  </pre><input type ="password" id="confirmPw"><br>
+                <button type="submit" id="pwButton">Send</button>
+            </form>
+        </div>
+
+        <div class = "survey">
+            <h3>Surveys</h3>
+            <span>Start Date: <input type = "text" class = "datePicker" id="startDate"></span><span>End Date: <input type = "text" class = "datePicker" id="endDate"></span><button id = "submitDate">View</button>
+            <div class = "tableBox">	
+                <table class = "survey">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="sort" id="surveyID">Survey ID</th>
+                            <th class="sort" id='userID'>User ID</th>
+                            <th class='sort' id='circle'>Circle</th>
+                            <th class='sort' id='survey'>Survey</th>
+                            <th class='sort' id='submissionTime'>Submission Time</th>
+                            <th class='sort' id='temperature'>Temperature</th>
+                            <th class='sort' id='species'>Plant Species</th>
+                            <th class='sort' id='herbivory'>Herbivory</th>
+                            <th>Plant Picture</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr id = "survey1" class = "survey odd">
+                            <td>+</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>5:11PM 10/5/2014</td>
+                            <td>80</td>
+                            <td>Plant</td>
+                            <td>1</td>
+                            <td><a href="">Picture</a></td>
+                            <td><button>Delete Entry</button></td>
+                            <td><button>Mark User as Invalid</button></td>
+                        </tr>
+                        <tr class="order">
+                            <td class = "order" colspan = "12">
+                                <div>
+                                    Order: Arthropod;<br>
+                                    Length: 100mm;<br>
+                                    Count: 20;<br>
+                                    Notes: This is a note for Arthropod;<br>
+                                    Photo: <a href="">Picture</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="order">
+                            <td class = "order" colspan = "12">
+                                <div>
+                                    Order: Arthropod;<br>
+                                    Length: 100mm;<br>
+                                    Count: 20;<br>
+                                    Notes: This is a note for Arthropod;<br>
+                                    Photo: <a href="">Picture</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "survey2" class = "survey">
+                            <td>+</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>5:11PM 10/5/2014</td>
+                            <td>80</td>
+                            <td>Plant</td>
+                            <td>1</td>
+                            <td><a href="">Picture</a></td>
+                            <td><button>Delete Entry</button></td>
+                            <td><button>Mark User as Invalid</button></td>
+                        </tr>
+                        <tr class="order">
+                            <td class = "order" colspan = "12">
+                                <div>
+                                    Order: Arthropod;<br>
+                                    Length: 100mm;<br>
+                                    Count: 20;<br>
+                                    Notes: This is a note for Arthropod;<br>
+                                    Photo: <a href="">Picture</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>

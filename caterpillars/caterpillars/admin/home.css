@@ -1,0 +1,101 @@
+body {
+	margin: 0;
+	background: #ECECEC;
+}
+
+div.userInfo {
+	-webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+	-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+	background: #355D3D;
+	color: white;
+	height: 25px;
+        padding: 5px 5px;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+}
+
+div.userInfo span{
+    float:left;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+div.userInfo button{
+    float:right;
+}
+
+div.changeSitePw{
+    margin-left: 20px;
+}
+
+div.changeSitePw input{
+    margin: 5px 0px;
+}
+
+div.changeSitePw pre{
+    display: inline;
+}
+
+p.error{
+    color:red;
+}
+
+div.survey{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+div.survey  > span{
+	margin-right: 25px;
+}
+
+table.survey {
+    border-collapse: collapse;
+}
+
+tr.survey.odd{
+    background-color:#00FF99;
+    
+}
+
+table.survey th, td {
+	padding: 10px 10px;
+}
+
+tr.order {
+    display: none;
+    background-color: Wheat;
+}
+
+td.order div{
+	margin-left: 50px;
+}
+
+div.tableBox {
+	-webkit-box-shadow:  
+		inset 0 0 5px #000;
+	  -moz-box-shadow:  
+		inset 0 0 5px #000;
+	  -o-box-shadow: 
+		inset 0 0 5px #000;
+	  box-shadow: 
+		inset 0 0 5px #000;
+	
+	margin-right: 50px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+th.sort:hover{
+    color: forestgreen;
+}
+
+th.sort:active{
+    text-decoration: underline;
+}
+
+table.survey img{
+    width: 50px;
+    height: 70px;
+}

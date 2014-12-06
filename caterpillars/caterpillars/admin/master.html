@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Caterpillars Count Master Administrator Tool</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <script src="jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <link rel="stylesheet" href="master.css">
+        <script>
+            $(function () {
+                $(".datePicker").datepicker({ dateFormat: "yy-mm-dd" });
+            });
+        </script>
+        <script src = "master.js"></script>
+    </head>
+
+    <body>
+
+        <div class = "userInfo">
+            <span class = "userName">user name (administrator)</span>
+            <button id = "signout">Log Out</button>
+        </div>
+
+
+        <div class="credentials">
+            <form class="credentials">
+                <pre>User Email:    </pre><span class ="userEmail"></span>
+                <pre>User Password: </pre><input type="password" id = "userPw"><br>
+            </form> 
+        </div>
+        
+        <div class='siteBox'>
+            
+
+            <div class="newSite">
+                <h3>Create New Site</h3>
+                <form class="newSite">
+                    <pre>Site Name*:       </pre><input type="text" name="siteName"><br>
+                    <pre>State*:           </pre><select name="state">
+                        <option value="">State</option>
+                        <option value="AK">AK</option>
+
+                        <option value="AL">AL</option>
+                        <option value="AR">AR</option>
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>
+
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>
+
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>
+                        <option value="ND">ND</option>
+
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+
+                        <option value="VA">VA</option>
+                        <option value="VT">VT</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>
+
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                    </select><br>
+                    <pre>Site Password*:   </pre><input type="password" name="sitePw"><br>
+                    <pre>Latitude*:        </pre><input type="text" name="siteLat"><br>
+                    <pre>Longitude*:       </pre><input type="text" name="siteLong"><br>
+                    <div class='description'><pre>Site Description: </pre><textarea name="siteDescription" cols="40" rows="5"></textarea></div>
+                    <button>Add Site</button>
+                </form>
+            </div>
+            
+            <div class='site2'>
+                <h3>Change Site Password</h3>
+                <form class="changeSitePw">
+                    <pre>Select Site:       </pre><select class="siteSelect changePw"></select><br>
+                    <pre>New Site Password: </pre><input type ="password" id ="newSitePw"><br>
+                    <pre>Confirm Password:  </pre><input type ="password" id="confirmPw"><br>
+                    <button type="submit" id="pwButton">Send</button>
+                </form>
+                
+                <h3>Select Sites</h3>
+                <select class="siteSelect" id = "surveySites" multiple></select><br>
+                <button class='siteSelect'>Update</button>
+            </div>
+            
+        </div>
+        
+        <div class = "survey">
+           
+            <span>Start Date: <input type = "text" class = "datePicker" id="startDate"></span><span>End Date: <input type = "text" class = "datePicker" id="endDate"></span><button id = "submitDate">View</button>
+            <div class = "tableBox">	
+                <table class = "survey">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="sort" id="surveyID">Survey ID</th>
+                            <th class="sort" id='userID'>User ID</th>
+                            <th class="sort" id='siteID'>Site ID</th>
+                            <th class='sort' id='circle'>Circle</th>
+                            <th class='sort' id='survey'>Survey</th>
+                            <th class='sort' id='submissionTime'>Submission Time</th>
+                            <th class='sort' id='temperature'>Temperature</th>
+                            <th class='sort' id='species'>Plant Species</th>
+                            <th class='sort' id='herbivory'>Herbivory</th>
+                            <th>Plant Picture</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr id = "survey1" class = "survey">
+                            <td>+</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>5:11PM 10/5/2014</td>
+                            <td>80</td>
+                            <td>Plant</td>
+                            <td>1</td>
+                            <td><a href="">Picture</a></td>
+                            <td><button>Delete Entry</button></td>
+                            <td><button>Mark User as Invalid</button></td>
+                        </tr>
+                        <tr>
+                            <td class = "order" colspan = "12">
+                                <div>
+                                    Order: Arthropod;<br>
+                                    Length: 100mm;<br>
+                                    Count: 20;<br>
+                                    Notes: This is a note for Arthropod;<br>
+                                    Photo: <a href="">Picture</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class = "order" colspan = "12">
+                                <div>
+                                    Order: Arthropod;<br>
+                                    Length: 100mm;<br>
+                                    Count: 20;<br>
+                                    Notes: This is a note for Arthropod;<br>
+                                    Photo: <a href="">Picture</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id = "survey2" class = "survey">
+                            <td>+</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>5:11PM 10/5/2014</td>
+                            <td>80</td>
+                            <td>Plant</td>
+                            <td>1</td>
+                            <td><a href="">Picture</a></td>
+                            <td><button>Delete Entry</button></td>
+                            <td><button>Mark User as Invalid</button></td>
+                        </tr>
+                        <tr>
+                            <td class = "order" colspan = "12">
+                                <div>
+                                    Order: Arthropod;<br>
+                                    Length: 100mm;<br>
+                                    Count: 20;<br>
+                                    Notes: This is a note for Arthropod;<br>
+                                    Photo: <a href="">Picture</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>

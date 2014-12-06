@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Caterpillars Count Web</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <script src="jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <style>
+            #herbivory .ui-selecting { background: #FECA40; }
+            #herbivory .ui-selected { background: #F39814; color: white; }
+            #herbivory { list-style-type: none; margin: 0; padding: 0; width: 300px;}
+            #herbivory li {margin: 3px; padding: 0.4em;height: 45px};
+        </style>
+        <script>
+            $(function () {
+                $("#herbivory").selectable({
+                    selected: function(event, ui) {
+                        $(ui.selected).addClass("ui-selected").siblings().removeClass("ui-selected");
+                    }                            
+                });
+            });
+        </script>
+        <script>
+            $(function () {
+                $(".datePicker").datepicker({ dateFormat: "yy-mm-dd" });
+            });
+        </script>
+    </head>
+    <body>
+        <div class = "userInfo">
+            <span class = "userName"></span><span class = "userEmail"></span>
+            <button id = "signout">Log Out</button>
+        </div>
+
+        <div class="instruction">
+            Enter data from your Caterpillars Count! surveys below.<br><br>
+
+            INSTRUCTIONS:<br>
+            1. First choose the site location where you conducted your survey from the Site dropdown menu. If you do not know the Site Password, please contact the local site administrator.<br>
+            2. Specify the date and time of the survey, and the temperature when you began.<br>
+            3. For each survey (specified by Circle 1-8 and Survey A-E), click the ‘Add Order’ button to add observations of arthropod orders on the leaves you examined. Select the Arthropod Order from the dropdown menu, provide a length estimate (in mm), and a count of the number of arthropods of that size. Add observations of different Arthropod Orders or different size classes using the ‘Add Order’ button until all of the arthropods you observed have been added. For example, you might add one record for 3 Caterpillars of length 25 mm, one record for 1 Caterpillar of length 35 mm, and one record for 6 Beetles of length 10 mm.<br>
+            4. For each survey, enter the name of the plant species that was surveyed if known (e.g., “Red Maple”, “White Oak”, etc.).<br>
+            5. Select an Herbivory Score characterizing the degree of herbivory on average across the 50 leaves in the survey. See the dropdown menu for herbivory ranges.<br>
+            6. Click “Submit Survey” when you are finished! You may continue adding data for additional survey locations by repeating Steps 3-6.<br>
+        </div>
+        <div id="d1">
+            <form class="survey">
+                <p>Site: <select name="site"></select></p>
+                <p>Site Password: <input type="password" name="sitePw"></p>
+                <p>Date:   <input type = "text" class = "datePicker" name="date"></p>
+                <p>Time:   <input type="time" name="time"></p>
+                <p>Temperature (deg F):
+                    <select name="temperature">
+                        <option value="20">below 30</option>
+                        <option value="30">30-40</option>
+                        <option value="40">40-50</option>
+                        <option value="50">50-60</option>
+                        <option value="60">60-70</option>
+                        <option value="70">70-80</option>
+                        <option value="80">80-90</option>
+                        <option value="90">90-100</option>
+                        <option value="100">100-110</option>
+                        <option value="110">above 110</option>
+                    </select>
+                </p>
+                <p class="siteNotes"><span>Site Notes: </span><textarea name="siteNotes" cols="40" rows="5"></textarea></p>
+                
+                <p>Circle: 
+                    <select name="circle">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </p>
+                <p>Survey: 
+                    <select name="survey">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                    </select>
+                </p>
+                <button id="addOrderForm">Add Order</button>
+                <p>Plant Species: <input name = "plant" type="text"></p>
+                <p>Herbivory Score:</p>
+                <ol id="herbivory">
+                    <li class="ui-widget-content"><pre>0 - None                 </pre><img src="leaf_0herbivory.png"></li>
+                    <li class="ui-widget-content"><pre>1 - Trace, <5%       </pre><img src="leaf_0herbivory.png"> to <img src="leaf_5pct_herbivory.png"></li>
+                    <li class="ui-widget-content"><pre>2 - Light, 5-10%     </pre><img src="leaf_5pct_herbivory.png"> to <img src="leaf_10pct_herbivory.png"></li>
+                    <li class="ui-widget-content"><pre>3 - Moderate, 10-25% </pre><img src="leaf_10pct_herbivory.png"> to <img src="leaf_25pct_herbivory.png"></li>
+                    <li class="ui-widget-content"><pre>4 - Heavy, >25%      </pre><img src="leaf_25pct_herbivory.png"> to <img src="leaf_max_herbivory.png"></li>
+                </ol>
+               
+                <button id="submitSurvey">Submit Survey</button>
+            </form>     
+        </div>
+        <div id="d2">
+            <div class="orderList"></div>
+        </div>
+    </body>
+</html>
